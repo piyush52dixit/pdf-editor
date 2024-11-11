@@ -1,0 +1,101 @@
+.min-height {
+  min-height: 100vh;
+}
+.text-white {
+  color: white;
+}
+.text-black {
+  color: black;
+}
+.bg-dark {
+  background-color: rgb(20, 20, 20);
+}
+.bg-white {
+  background-color: white;
+}
+
+/* Button and Upload */
+.button {
+  padding: 8px 16px;
+  background-color: #4b5563;
+  color: white;
+  border-radius: 8px;
+}
+.button:hover {
+  background-color: #374151;
+}
+.upload-container {
+  display: flex;
+  width: 40vw;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 50, 50, 0.2);
+  backdrop-blur: 5px;
+  z-index: 1001;
+}
+.loading-message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Page Navigation */
+.navigation {
+  position: fixed;
+  bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 50;
+}
+.page-info {
+  padding: 8px 16px;
+  background-color: #4b5563;
+  border-radius: 8px;
+  color: white;
+}
+
+/* Document Styles */
+.document-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-wrapper {
+  padding: 16px;
+  background-color: rgb(25, 25, 25);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+/* Close Button */
+.close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
