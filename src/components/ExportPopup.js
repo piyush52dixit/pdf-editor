@@ -8,6 +8,7 @@ import { useButtons } from "../context/CanvasContext";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { Backdrop, Dialog, Slide, Button } from "@mui/material";
+import Loader from "./Loader";
 
 export default function ExportPopup(props) {
   const contextValues = useButtons();
@@ -161,7 +162,9 @@ export default function ExportPopup(props) {
               zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
             open={isExporting}>
-            <div className="loader-container">docIsLoading...</div>
+            <div className="loader-container">
+              <Loader />
+            </div>
           </Backdrop>
           <div>
             <div className="mt-3 text-center sm:mt-5">

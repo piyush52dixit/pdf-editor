@@ -1,11 +1,18 @@
 import React, { useRef } from "react";
 import { fabric } from "fabric";
+import { Roboto } from "@next/font/google";
 
 const funButtons = React.createContext();
 
 export const useButtons = () => {
   return React.useContext(funButtons);
 };
+
+const roboto = Roboto({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
 
 export const CanvasProvider = ({ children }) => {
   const [numPages, setNumPages] = React.useState(null);
@@ -69,7 +76,7 @@ export const CanvasProvider = ({ children }) => {
     const text = new fabric.Textbox("Type Here ...", { editable: true });
     text.set({
       fill: "#000",
-      //   fontFamily: removeEventListener,
+      fontFamily: roboto.style.fontFamily,
       left: (canvi.width - 200) / 2,
       top: (canvi.height - 200) / 2,
     });

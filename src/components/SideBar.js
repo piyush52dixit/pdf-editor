@@ -1,22 +1,21 @@
 import React, { useState } from "react";
+import { CgFormatText } from "react-icons/cg";
+import { BiImageAdd } from "react-icons/bi";
+import { AiOutlineClear, AiOutlineDelete } from "react-icons/ai";
+import { FiSave } from "react-icons/fi";
+import { FaSignature } from "react-icons/fa"; // Import the signature icon
 import { useButtons } from "../context/CanvasContext";
 import Tooltip from "@mui/material/Tooltip";
 import ExportPopup from "./ExportPopup";
 import SignatureCanvas from "react-signature-canvas";
-import TextFieldsIcon from "@mui/icons-material/TextFields";
-import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
-import DeleteIcon from "@mui/icons-material/Delete";
-import ClearIcon from "@mui/icons-material/Clear";
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
-import BrushIcon from "@mui/icons-material/Brush";
 
 export default function SideBar() {
   const contextValues = useButtons();
-  console.log("🚀 ~ SideBar ~ contextValues:", contextValues);
   const [openExporter, setOpenExporter] = useState(false);
   const [showSignaturePad, setShowSignaturePad] = useState(false);
   const sigCanvasRef = useState(null);
 
+  // Function to handle adding signature to canvas
   const addSignatureToCanvas = () => {
     if (sigCanvasRef.current && contextValues.canvas) {
       const dataUrl = sigCanvasRef.current.toDataURL("image/png");
@@ -28,7 +27,7 @@ export default function SideBar() {
         });
         contextValues.canvas.add(img);
         contextValues.canvas.renderAll();
-        setShowSignaturePad(false);
+        setShowSignaturePad(false); // Close signature pad after adding
       });
     }
   };
@@ -56,7 +55,7 @@ export default function SideBar() {
 
         <Tooltip title="TextBox">
           <div>
-            <TextFieldsIcon
+            <CgFormatText
               className="md:text-[1.8rem] text-[1.5rem] cursor-pointer"
               onClick={() => contextValues.addText(contextValues.canvas)}
             />
@@ -66,7 +65,7 @@ export default function SideBar() {
         <Tooltip title="Add Image">
           <div>
             <label htmlFor="img-input">
-              <AddPhotoAlternateIcon className="md:text-[1.8rem] text-[1.5rem] cursor-pointer" />
+              <BiImageAdd className="md:text-[1.8rem] text-[1.5rem] cursor-pointer" />
             </label>
             <input
               type="file"
@@ -80,7 +79,7 @@ export default function SideBar() {
 
         <Tooltip title="Delete Selected">
           <div>
-            <DeleteIcon
+            <AiOutlineDelete
               className="md:text-[1.8rem] text-[1.5rem] cursor-pointer"
               onClick={() => contextValues.deleteBtn()}
             />
@@ -89,7 +88,7 @@ export default function SideBar() {
 
         <Tooltip title="Reset Page">
           <div>
-            <ClearIcon
+            <AiOutlineClear
               className="md:text-[1.8rem] text-[1.5rem] cursor-pointer"
               onClick={() => contextValues.canvas.clear()}
             />
@@ -98,7 +97,7 @@ export default function SideBar() {
 
         <Tooltip title="Download Whole PDF">
           <div>
-            <SaveAltIcon
+            <FiSave
               className="md:text-[1.8rem] text-[1.5rem] cursor-pointer"
               onClick={() => {
                 contextValues.edits[contextValues.currPage] =
@@ -112,7 +111,7 @@ export default function SideBar() {
         {/* Signature Pad Icon */}
         <Tooltip title="Add Signature">
           <div>
-            <BrushIcon
+            <FaSignature
               className="md:text-[1.8rem] text-[1.5rem] cursor-pointer"
               onClick={() => setShowSignaturePad(!showSignaturePad)}
             />
